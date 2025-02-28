@@ -17,16 +17,11 @@ namespace rdata_patch {
 
 std::unordered_map<uintptr_t, std::vector<uint8_t>> str_table;
 
-#pragma optimize("g", off)
-static void modify_str_arg() {
-  uint32_t stack_anchor;
-  uint32_t *str_arg_ptr = &stack_anchor + 8;
-
+static void __stdcall modify_str_arg(uint32_t *str_arg_ptr) {
   if (const auto it = str_table.find(*str_arg_ptr); it != str_table.cend()) {
     *str_arg_ptr = reinterpret_cast<uintptr_t>(it->second.data());
   }
 }
-#pragma optimize("g", on)
 
 constexpr uintptr_t func_addr_drawstring = 0x004d9e10;
 constexpr uintptr_t ret_addr =
@@ -36,6 +31,9 @@ static func_hooker drawstring;
 __declspec(naked) static void hook_drawstring() {
   __asm {
     push ecx
+    mov eax, esp
+    add eax, 12
+    push eax
     call modify_str_arg;
     pop ecx
     mov eax,dword ptr ss:[esp + 4]
