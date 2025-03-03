@@ -105,6 +105,12 @@ LONG WINAPI hook_immgetcompositionstringa(HIMC himc, DWORD flag, LPVOID lpBuf, D
   return result;
 }
 
+iat_hooker immsetconversionstatus;
+BOOL WINAPI hook_immsetconversionstatus(HIMC himc, DWORD convmode, DWORD sentmode) {
+  return immsetconversionstatus.call_origin<decltype(&ImmSetConversionStatus)>(
+      himc, IME_CMODE_NATIVE, sentmode);
+}
+
 bool apply(HMODULE hDLL) {
   dll_handle = hDLL;
   HINSTANCE hinst = GetModuleHandle(nullptr);
@@ -116,7 +122,8 @@ bool apply(HMODULE hDLL) {
     findfirstfilea.hook(hinst, "kernel32.dll", "FindFirstFileA", hook_findfirstfilea) &&
     getfileattributesa.hook(hinst, "kernel32.dll", "GetFileAttributesA", hook_getfileattributesa) &&
     deletefilea.hook(hinst, "kernel32.dll", "DeleteFileA", hook_deletefilea) &&
-    immgetcompositionstringa.hook(hinst, "imm32.dll", "ImmGetCompositionStringA", hook_immgetcompositionstringa);
+    immgetcompositionstringa.hook(hinst, "imm32.dll", "ImmGetCompositionStringA", hook_immgetcompositionstringa) &&
+    immsetconversionstatus.hook(hinst, "imm32.dll", "ImmSetConversionStatus", hook_immsetconversionstatus);
 }
 
 void undo() {
@@ -130,6 +137,7 @@ void undo() {
   getfileattributesa.unhook();
   deletefilea.unhook();
   immgetcompositionstringa.unhook();
+  immsetconversionstatus.unhook();
 }
 
 }  // namespace api_hook
