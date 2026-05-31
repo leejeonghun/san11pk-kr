@@ -1,9 +1,13 @@
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
 [![CI](https://github.com/leejeonghun/san11pk-kr/actions/workflows/main.yml/badge.svg)](https://github.com/leejeonghun/san11pk-kr/actions/workflows/main.yml)
+[![Latest Release](https://img.shields.io/github/v/release/leejeonghun/san11pk-kr)](https://github.com/leejeonghun/san11pk-kr/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/leejeonghun/san11pk-kr/total)](https://github.com/leejeonghun/san11pk-kr/releases/latest)
 # san11pk-kr
 
 
 코에이테크모의 스팀판 [삼국지11 with 파워업키트](https://store.steampowered.com/app/628070/Romance_of_the_Three_Kingdoms_XI_with_Power_Up_Kit)의 한글 패치입니다.
+
+[여기](https://github.com/leejeonghun/san11pk-kr/releases/latest)를 눌러 최신 버전의 패치를 다운로드 받을 수 있습니다.
 
 
 ## 기능
@@ -19,7 +23,7 @@
 
 * [삼국지11 with 파워업키트](https://store.steampowered.com/app/628070/Romance_of_the_Three_Kingdoms_XI_with_Power_Up_Kit)를 설치 후 언어를 일본어로 변경합니다.
 * [여기](https://cafe.naver.com/sam10/601725)에서 패키지 버전용 한글패치를 다운로드 받아 스팀판 설치 경로에 압축 해제 및 덮어쓰기 (San11WPK.exe 파일 제외) 합니다.
-* [Releases](https://github.com/leejeonghun/san11pk-kr/releases) 항목에서 본 패치를 다운로드 받아 압축파일 내 d3d9.dll 파일을 게임 설치 폴더(실행 파일인 San11WPK.exe 파일이 있는 폴더)에 복사한 후 게임을 실행하면 패키지 버전용 한글패치가 스팀판에 적용되어 실행됩니다.
+* [Releases](https://github.com/leejeonghun/san11pk-kr/releases/latest) 항목에서 본 패치를 다운로드 받아 압축파일 내 d3d9.dll 파일을 게임 설치 폴더(실행 파일인 San11WPK.exe 파일이 있는 폴더)에 복사한 후 게임을 실행하면 패키지 버전용 한글패치가 스팀판에 적용되어 실행됩니다.
 * 개인적으로 만든 프로그램이라, 디지털 서명이 되어 있지 않습니다. 다운로드 및 압축 해제 시 웹브라우저 보안 경고 및 윈도우에서 스마트 스크린 경고가 뜰 수 있으므로 참고 부탁드립니다.
 
 
